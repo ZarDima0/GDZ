@@ -10,6 +10,9 @@
     padding: 10px;
     background-color: #fff;
     border-radius: 20px;
+    form {
+        margin: 15px;
+    }
     &__input {
         outline:none;
         padding: 10px;
@@ -33,6 +36,7 @@
     input{
         width: 100%;
         padding: 10px;
+        margin: 15px 10px 0 0px;
         background: none;
         border: 3px solid #888ef3;
         border-radius: 50px;
@@ -49,12 +53,20 @@
 }
 
 
-// для форму авторизации 
-#button-login {
+// для формы авторизации 
+.button-create {
     background-color: #a2a6f4;
     border: none;
     border-radius: 5px;
     padding: 10px;
     width: 120px;
+    font-size: 18px;
+    color: #ffff;
     cursor: pointer;
+}
+.link-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 15px;
 }

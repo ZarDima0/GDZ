@@ -232,37 +232,3 @@ svg {
   0% { opacity: 0.4; }
   100% { opacity: 0; }
 }
-
-
-
-/**** Wrapper styles ****************/
-// html,
-// body {
-//   height: 100%;
-// }
-// body {
-//   align-items: center;
-//   background: $light;
-//   display: flex;
-//   justify-content: center;
-//   overflow: hidden;
-//   -webkit-font-smoothing: antialiased;
-
-//   .background {
-//     align-items: center;
-//     display: flex;
-//     height: 100%;
-//     justify-content: center;
-//     width: 50%;
-//     &--light {
-//       background: $light;
-//     }
-//     &--dark {
-//       background: $dark;
-//     }
-//   }
-
-//   button {
-//     margin: 20px;
-//   }
-// }

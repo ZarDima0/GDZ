@@ -14,6 +14,9 @@
   background-color: #fff;
   border-radius: 20px;
 }
+.form-create form {
+  margin: 15px;
+}
 .form-create__input {
   outline: none;
   padding: 10px;
@@ -37,6 +40,7 @@
 .form-create input {
   width: 100%;
   padding: 10px;
+  margin: 15px 10px 0 0px;
   background: none;
   border: 3px solid #888ef3;
   border-radius: 50px;
@@ -51,13 +55,22 @@
   outline-offset: 0;
 }
 
-#button-login {
+.button-create {
   background-color: #a2a6f4;
   border: none;
   border-radius: 5px;
   padding: 10px;
   width: 120px;
+  font-size: 18px;
+  color: white;
   cursor: pointer;
+}
+
+.link-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 15px;
 }
 
 /* Указываем box sizing */
@@ -167,11 +180,6 @@ header a.logo {
   font-weight: bold;
 }
 
-header a:hover {
-  background-color: #a2a6f4;
-  color: #fafafa;
-}
-
 header a.active {
   background-color: #a2a6f4;
 }
@@ -179,7 +187,6 @@ header a.active {
 nav {
   display: flex;
   align-items: center;
-  overflow: overlay;
 }
 
 section {
@@ -203,10 +210,6 @@ section {
 }
 .institute-block__title img {
   margin: 2px;
-}
-
-.institute-block:hover {
-  background-color: #a2a6f4;
 }
 
 .logoutButton {
@@ -449,7 +452,6 @@ svg {
     opacity: 0;
   }
 }
-/**** Wrapper styles ****************/
 body {
   background-color: #F8F8FA;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Gdz\CreateFileController;
 use App\Http\Controllers\Gdz;
 
 /*
@@ -14,14 +15,11 @@ use App\Http\Controllers\Gdz;
 |
 */
 
+require __DIR__ . '/auth.php';
 
-
-// Route::get('/dashboard', function () {
-//     return view('dashboard');
-// })->middleware(['auth'])->name('dashboard');
-
-require __DIR__.'/auth.php';
-
+Route::get('/upload-file', [CreateFileController::class, 'create'])->name('create.file')->middleware('auth');
+Route::get('/upload-file/index', [CreateFileController::class, 'index'])->name('index.data')->middleware('auth');
+Route::post('/upload-file', [CreateFileController::class, 'upload'])->name('upload.file')->middleware('auth');
 Route::get('/', Gdz\HomeController::class . '@index')->name('/');
 Route::get('/{slug}', Gdz\HomeController::class . '@create')->name('create.direction');
 Route::get('/{slug}/{slugArticle}', Gdz\DirectionController::class . '@index')->name('index.direction');
