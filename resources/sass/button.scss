@@ -232,3 +232,47 @@ svg {
   0% { opacity: 0.4; }
   100% { opacity: 0; }
 }
+.button_add-file {
+  background: none;
+  border: 0;
+  color: $light;
+  cursor: pointer;
+  display: block;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  height: 40px;
+  outline: none;
+  padding: 0 0 0 20px;
+  perspective: 100px;
+  position: relative;
+  text-align: left;
+  width: 130px;
+  -webkit-tap-highlight-color: transparent;
+  margin-right: 10px;
+  &::before {
+    background-color: $dark;
+    border-radius: 5px;
+    content: '';
+    display: block;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    transform: none;
+    transition: transform 50ms ease;
+    width: 100%;
+    z-index: 2;
+  }
+  a {
+    display: flex;
+    color: $light;
+    font-weight: 500;
+    position: relative;
+    z-index: 10;
+    padding: 0;
+    font-size: 15px;
+    margin-right: 5px;
+    font-size: 18px;
+  }
+}

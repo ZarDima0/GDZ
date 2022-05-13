@@ -1,8 +1,6 @@
-
 let directionList;
 let instityteList;
 let articleList;
-console.log('Dima')
 
 function checkSelectInstitute(directionList) {
     let instityteListDom = document.querySelector('.instityte-List');

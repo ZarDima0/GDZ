@@ -1,0 +1,29 @@
+.file-list__item {
+    display: flex;
+    justify-content: space-between;
+}
+.file__info {
+    display: flex;
+}
+.file__title {
+    margin-top: 5px;
+}
+.file__title {
+    a {
+        font-size: 14px;
+    }
+}
+.file__download-button {
+    background-color: rgb(61, 209, 35);
+    border: none;
+    border-radius: 10px;
+    a{
+        color: #fff;
+    }
+}
+@media (max-width: 768px) {
+    .file-list__item {
+        display: flex;
+        flex-direction: column;
+    }
+}
