@@ -23,7 +23,7 @@ class FileController extends Controller
         if($filePath) {
             $file = Storage::delete([$filePath->path_file]);
             $filePath->delete();
-            return back()->withInput(['message' => 'удалено']);
+            return back()->with(['deletefile' => 'удалено']);
         }
     }
 }

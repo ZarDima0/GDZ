@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Апр 28 2022 г., 14:24
+-- Время создания: Май 21 2022 г., 20:21
 -- Версия сервера: 8.0.24
 -- Версия PHP: 7.4.21
 
@@ -50,7 +50,15 @@ INSERT INTO `article` (`id`, `article_name`, `teacher_id`, `direction_id`, `crea
 (32, 'Основы территориального планирования', 2, 1, NULL, NULL, 'osnovy-territorialnogo-planirovaniya'),
 (33, 'Региональное и отраслевое природопользование', 2, 1, NULL, NULL, 'regionalnoe-i-otraslevoe-prirodopolzovanie'),
 (34, 'Экологическая культура', 2, 1, NULL, NULL, 'ekologiceskaya-kultura'),
-(35, 'Эколого-географическое прогнозирование', 2, 1, NULL, NULL, 'ekologo-geograficeskoe-prognozirovanie');
+(35, 'Эколого-географическое прогнозирование', 2, 1, NULL, NULL, 'ekologo-geograficeskoe-prognozirovanie'),
+(45, 'Новый предмет 3241234', 2, 1, '2022-05-08 04:54:56', '2022-05-08 04:54:56', 'novyi-predmet-3241234'),
+(46, 'Новый предмет', 2, 19, '2022-05-08 04:58:05', '2022-05-08 04:58:05', 'novyi-predmet'),
+(47, 'Новый предмет истории', 2, 26, '2022-05-08 05:01:01', '2022-05-08 05:01:01', 'novyi-predmet-istorii'),
+(48, 'Новый предмет истории', 2, 26, '2022-05-08 05:01:53', '2022-05-08 05:01:53', 'novyi-predmet-istorii'),
+(49, 'Новый тестовый предмет', 2, 1, '2022-05-08 05:05:13', '2022-05-08 05:05:13', 'novyi-testovyi-predmet'),
+(50, 'Новый предмет не знаю какой', 2, 1, '2022-05-09 01:41:21', '2022-05-09 01:41:21', 'novyi-predmet-ne-znayu-kakoi'),
+(51, 'fgfdsgsfgsfgsdgsdfg', 2, 1, '2022-05-09 05:50:20', '2022-05-09 05:50:20', 'fgfdsgsfgsfgsdgsdfg'),
+(52, 'Новый предмет 3241234', 2, 1, '2022-05-21 04:19:20', '2022-05-21 04:19:20', 'novyi-predmet-3241234');
 
 -- --------------------------------------------------------
 
@@ -72,7 +80,20 @@ CREATE TABLE `direction` (
 --
 
 INSERT INTO `direction` (`id`, `nameDirection`, `institute_id`, `created_at`, `updated_at`, `slug`) VALUES
-(1, 'Экология и природопользование', 1, NULL, NULL, 'ecologi-i-prirodopolzovanie');
+(1, 'Экология и природопользование', 1, NULL, NULL, 'ecologi-i-prirodopolzovanie'),
+(19, 'Рекреационной географии', 1, NULL, NULL, 'rekreacionnoi-geografii'),
+(20, 'Физической географии и ГИС', 1, NULL, NULL, 'fiziceskoi-geografii-i-gis'),
+(21, 'Экономической географии и картографии', 1, NULL, NULL, 'ekonomiceskoi-geografii-i-kartografii'),
+(22, 'Археологии, этнографии и музеологии', 12, NULL, NULL, 'arxeologii-etnografii-i-muzeologii'),
+(23, 'Востоковедения', 12, NULL, NULL, 'vostokovedeniya'),
+(24, 'Всеобщей истории и международных отношений', 12, NULL, NULL, 'vseobshhei-istorii-i-mezdunarodnyx-otnosenii'),
+(25, 'Иностранных языков', 12, NULL, NULL, 'inostrannyx-yazykov'),
+(26, 'Отечественной истории', 12, NULL, NULL, 'otecestvennoi-istorii'),
+(27, 'Ботаники', 13, NULL, NULL, 'botaniki'),
+(28, 'Зоологии и физиологии', 13, NULL, NULL, 'zoologii-i-fiziologii'),
+(29, 'Физико-химической биологии и биотехнологии', 13, NULL, NULL, 'fiziko-ximiceskoi-biologii-i-biotexnologii'),
+(30, 'Экологии,биохимии,биотехнологии', 13, NULL, NULL, 'ekologiibioximiibiotexnologii'),
+(31, 'Экологии,биохимии,биотехнологии', 13, NULL, NULL, 'ekologiibioximiibiotexnologii');
 
 -- --------------------------------------------------------
 
@@ -98,12 +119,24 @@ CREATE TABLE `failed_jobs` (
 CREATE TABLE `file` (
   `id` bigint UNSIGNED NOT NULL,
   `nameFile` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `id_teacher` bigint UNSIGNED NOT NULL,
+  `id_teacher` bigint UNSIGNED DEFAULT NULL,
   `id_direction` bigint UNSIGNED NOT NULL,
   `path_file` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `article_id` bigint UNSIGNED DEFAULT NULL,
+  `user_id` bigint UNSIGNED DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Дамп данных таблицы `file`
+--
+
+INSERT INTO `file` (`id`, `nameFile`, `id_teacher`, `id_direction`, `path_file`, `created_at`, `updated_at`, `article_id`, `user_id`) VALUES
+(20, 'Практика 4.5', 2, 1, 'public/folder/3-4.docx', '2022-05-10 12:04:27', '2022-05-10 12:04:27', 27, 3),
+(22, 'Лох лох', 2, 1, 'public/folder/1-2.docx', '2022-05-12 07:55:26', '2022-05-12 07:55:26', 27, 4),
+(35, 'Первая практика', 2, 1, 'public/folder/Perechen_voprosov_k_gosudarstvennomu_ekzamenu_05_03_06_2022 (1).docx', '2022-05-21 10:07:19', '2022-05-21 10:07:19', 27, 2),
+(36, 'Fufugtuhry', 2, 1, 'public/folder/3_ Состав земель лесного фонда и иных категорий.xls', '2022-05-21 10:11:53', '2022-05-21 10:11:53', 27, 2);
 
 -- --------------------------------------------------------
 
@@ -239,7 +272,9 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
 (1, 'DMITRY FIBUKH', 'dfibikhalex@gmail.com', NULL, '$2y$10$et7/SGQ2O5As6wtiR99ade2fxKzl5Wm9hUcEBHo7WzFP6l0J5tS6W', NULL, '2022-04-26 09:55:51', '2022-04-26 09:55:51'),
-(2, 'Dima', 'dima.fibikh@mail.ru', NULL, '$2y$10$K0LgMa7EGDDyRDQAzSeAMuHDGW7Vh5Ryl5GOm7NjKexykqqKsAyyu', NULL, '2022-04-26 10:00:32', '2022-04-26 10:00:32');
+(2, 'Дмитрий', 'dima.fibikh@mail.ru', NULL, '$2y$10$K0LgMa7EGDDyRDQAzSeAMuHDGW7Vh5Ryl5GOm7NjKexykqqKsAyyu', NULL, '2022-04-26 10:00:32', '2022-05-21 09:09:45'),
+(3, 'Марлен', 'marlen@mail.ru', NULL, '$2y$10$SyR2LJ9VD.1uIJiASV0l5.LhB3ZTjT/K7Hzjda7ixzAc36Oxz/5C6', NULL, '2022-05-10 08:47:15', '2022-05-10 08:47:15'),
+(4, 'Татьяна2', 'tanya.tanya.yudina.2002@gmail.com', NULL, '$2y$10$wDe5GAGMQMKS3Xna9IVdG.LeJMW0iNJ.z2teI6Jh1VGDI26EwCpia', NULL, '2022-05-12 07:51:09', '2022-05-12 07:52:53');
 
 --
 -- Индексы сохранённых таблиц
@@ -272,7 +307,9 @@ ALTER TABLE `failed_jobs`
 ALTER TABLE `file`
   ADD PRIMARY KEY (`id`),
   ADD KEY `file_id_teacher_foreign` (`id_teacher`),
-  ADD KEY `file_id_direction_foreign` (`id_direction`);
+  ADD KEY `file_id_direction_foreign` (`id_direction`),
+  ADD KEY `file_article_id_foreign` (`article_id`),
+  ADD KEY `file_user_id_foreign` (`user_id`);
 
 --
 -- Индексы таблицы `institute`
@@ -322,13 +359,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT для таблицы `article`
 --
 ALTER TABLE `article`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 
 --
 -- AUTO_INCREMENT для таблицы `direction`
 --
 ALTER TABLE `direction`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT для таблицы `failed_jobs`
@@ -340,7 +377,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT для таблицы `file`
 --
 ALTER TABLE `file`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT для таблицы `institute`
@@ -352,7 +389,7 @@ ALTER TABLE `institute`
 -- AUTO_INCREMENT для таблицы `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT для таблицы `personal_access_tokens`
@@ -370,7 +407,7 @@ ALTER TABLE `teachers`
 -- AUTO_INCREMENT для таблицы `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Ограничения внешнего ключа сохраненных таблиц
@@ -393,8 +430,10 @@ ALTER TABLE `direction`
 -- Ограничения внешнего ключа таблицы `file`
 --
 ALTER TABLE `file`
+  ADD CONSTRAINT `file_article_id_foreign` FOREIGN KEY (`article_id`) REFERENCES `article` (`id`),
   ADD CONSTRAINT `file_id_direction_foreign` FOREIGN KEY (`id_direction`) REFERENCES `direction` (`id`),
-  ADD CONSTRAINT `file_id_teacher_foreign` FOREIGN KEY (`id_teacher`) REFERENCES `teachers` (`id`);
+  ADD CONSTRAINT `file_id_teacher_foreign` FOREIGN KEY (`id_teacher`) REFERENCES `teachers` (`id`),
+  ADD CONSTRAINT `file_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
 
 --
 -- Ограничения внешнего ключа таблицы `teachers`

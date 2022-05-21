@@ -44,3 +44,23 @@
         }
     }
 }
+.block-error {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #20ee26;
+    padding: 10px;
+    border-radius:10px ;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    img{
+        cursor: pointer;
+    }
+    &__text-error {
+        display: flex;
+        flex-direction: column;
+        p {
+            display: inline-block;
+        }
+    }
+}

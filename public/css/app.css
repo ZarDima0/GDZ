@@ -611,6 +611,20 @@ svg {
   background-color: #6970f9;
 }
 
+.block-success {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #20ee26;
+  padding: 10px;
+  border-radius: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.block-success img {
+  cursor: pointer;
+}
+
 .file-list__item {
   display: flex;
   justify-content: space-between;
@@ -688,6 +702,27 @@ svg {
   -webkit-appearance: none;
   appearance: none;
   background-color: rgb(248, 248, 250);
+}
+
+.block-error {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #20ee26;
+  padding: 10px;
+  border-radius: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.block-error img {
+  cursor: pointer;
+}
+.block-error__text-error {
+  display: flex;
+  flex-direction: column;
+}
+.block-error__text-error p {
+  display: inline-block;
 }
 
 body {

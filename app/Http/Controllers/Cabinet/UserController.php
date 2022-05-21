@@ -39,7 +39,7 @@ class UserController extends Controller
         $userFind->email = $request->email;
         $userFind->save();
         if($userFind) {
-            return redirect()->route('cabinet.index')->with(['success' => 'Данные сохранены']);
+            return redirect()->route('cabinet.index')->with(['updateUser' => 'Данные сохранены']);
         }else {
             return back()->withErrors(['msg' => 'Ошибка сохранения']);
         }

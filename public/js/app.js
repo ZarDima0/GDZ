@@ -2062,7 +2062,9 @@ module.exports = {
 
 __webpack_require__(/*! ./buttonLogout */ "./resources/js/buttonLogout.js");
 
-__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); // require('./search')
+__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
+
+__webpack_require__(/*! ./cabinetPopap */ "./resources/js/cabinetPopap.js");
 
 /***/ }),
 
@@ -2239,6 +2241,20 @@ var logoutButtonStates = {
     '--transform-calf2': 'none'
   }
 };
+
+/***/ }),
+
+/***/ "./resources/js/cabinetPopap.js":
+/*!**************************************!*\
+  !*** ./resources/js/cabinetPopap.js ***!
+  \**************************************/
+/***/ (() => {
+
+var imgButtom = document.querySelector('.block-success__button-delete');
+imgButtom.addEventListener('click', function () {
+  var blockPopap = document.querySelector('.block-success');
+  blockPopap.style.display = 'none';
+});
 
 /***/ }),
 

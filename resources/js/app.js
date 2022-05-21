@@ -1,3 +1,3 @@
 require("./buttonLogout");
 require("./bootstrap");
-// require('./search')
+require("./cabinetPopap");

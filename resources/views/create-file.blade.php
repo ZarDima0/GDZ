@@ -4,6 +4,23 @@
 <div class = 'file-add_form' >
 <form action="{{route('upload.file')}}" class = 'file-create' method="post" enctype="multipart/form-data">
     @csrf
+    @if($message = Session::get('fileadd'))
+    <div class = 'block-success'>           
+        <h3>Файл добавлен</h3>
+        <img class = 'block-success__button-delete' src="/img/delete.png" alt="delele" width = '25px'>
+    </div>
+    @endif
+    @if ($errors->all())
+        <div class = 'block-error'>           
+            <h3>Ошибка</h3>
+            @foreach($errors->all() as $error)
+            <div class = 'block-error__text-error'>
+                <p>{{ $error }}</p>
+            </div>
+			@endforeach
+            <img class = 'block-success__button-delete' src="/img/delete.png" alt="delele" width = '25px'>
+        </div>
+    @endif
     <input name = 'nameFile' placeholder = 'название практики' type="text">
     <select name = 'instityte' class = 'instityte-List'id=""></select>
     <select name = 'direction' class = 'direction-List'  style = 'display:block' name="" id="">
@@ -13,13 +30,6 @@
     </select>
     <input class = 'new-article' name = 'new-article' placeholder = 'Напиши название предмета' style = 'display:none' type="text">
     <input type="file" name="file">
-    @if ($errors->all())
-		<div class="alert alert-danger">
-			@foreach($errors->all() as $error)
-			<p>{{ $error }}</p>
-			@endforeach
-		</div>
-@endif
     <input type="submit" value="Сохранить">
 </form>
 </div>

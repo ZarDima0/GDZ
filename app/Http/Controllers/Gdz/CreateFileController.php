@@ -61,7 +61,7 @@ class CreateFileController extends Controller
                 'id_teacher' => 2,
                 'user_id' => Auth::user()->id,
             ]);
-            return redirect(route('create.file'))->with('success', 'Файл добавлен');
+            return redirect(route('create.file'))->with('fileadd', 'Файл добавлен');
         }
     }
 }
