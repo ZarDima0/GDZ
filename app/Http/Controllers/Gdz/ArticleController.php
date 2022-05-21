@@ -12,7 +12,7 @@ class ArticleController extends Controller
     function index($instituteSlug,$directionSlug) 
     {
         $directionId = Direction::where('slug','=',$directionSlug)->first();
-        $articleList = Article::where('direction_id','=',$directionId->id)->get();
+        $articleList = Article::where('direction_id','=',$directionId->id)->select(['id','article_name','slug'])->get();
         return view('article',compact('articleList','instituteSlug','directionSlug'));
     }
 }

@@ -1,7 +1,8 @@
 @extends('home')
 @section('content')
 <h2>Список практик</h2>
-    @foreach($fileList as $file)
+@if(isset($fileList[0]->nameFile))
+@foreach($fileList as $file)
         <div class= 'institute-block'>
             <div class= 'file-list__item'>
                 <div class = 'file__info'>
@@ -17,4 +18,10 @@
             </div>
         </div>
     @endforeach
+@else
+<div class = 'block-none' >
+        <h1>Не найдено</h1>
+        <a href="/upload-file">Добавить</a>
+    </div>
+@endif
 @endsection

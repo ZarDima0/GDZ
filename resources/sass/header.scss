@@ -52,3 +52,29 @@ section {
     }
     display: flex;
 }
+
+.hide {
+  display:none;
+}
+.block-none {
+  margin-top: 15px;
+  padding: 10px;
+  background-color: #ffff;
+  border-radius: 10px;
+  display: flex;
+  a {
+    margin-left: 10px;
+    padding: 10px;
+    background-color: #a2a6f4;
+    color: #fff;
+    border-radius: 10px;
+    border: none;
+    text-decoration: none;
+    &:hover {
+    background-color: #6970f9; 
+    }
+    &:active {
+      background-color: #6970f9; 
+      }
+  }
+}

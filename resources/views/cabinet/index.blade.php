@@ -28,6 +28,15 @@
 </div>
 </div>
 <h1>Мои практики</h1>
+<div>
+<?php
+var_dump(Session::has('message'));
+var_dump(Session::get('message'))
+?>
+@if(Session::has('message'))
+		{{Session::get('message')}}
+@endif
+</div>
 <div class = 'file-list'>
 @foreach ($fileList as $file)
     <div class = 'file-list__file'>

@@ -2062,7 +2062,7 @@ module.exports = {
 
 __webpack_require__(/*! ./buttonLogout */ "./resources/js/buttonLogout.js");
 
-__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
+__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); // require('./search')
 
 /***/ }),
 
