@@ -23,6 +23,7 @@
         </div>
         <nav>
             @if (Auth::check())
+            <img src="public/img/user.png" alt="">
             <h1>{{Auth::user()->name}}</h1>
             <a href="{{route('create.file')}}">Добавить файл</a>
             <form method="POST" action="{{ route('logout') }}">
