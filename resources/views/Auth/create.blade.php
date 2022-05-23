@@ -1,9 +1,9 @@
 @extends('home')
 @section('content')
 <div class='block-create'>
-    <h2 class='title-create'>Зарегистрироваться</h2>
     <div class='form-create'>
         <form method="POST" action="{{ route('register') }}">
+            <h2 class='title-create'>Зарегистрироваться</h2>
             @csrf
 
             <!-- Name -->

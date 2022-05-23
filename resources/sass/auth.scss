@@ -1,15 +1,20 @@
 .title-create {
     padding-bottom: 10px;
+    display: flex;
+    justify-content: space-around;
 }
 .block-create {
     display: flex;
     flex-direction:column;
     align-items: center;
+    
 }
 .form-create {
-    padding: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
     background-color: #fff;
     border-radius: 20px;
+
     form {
         margin: 15px;
     }
@@ -33,18 +38,25 @@
         flex-wrap: wrap;
         justify-content: space-around;
     }
-    input{
+    input {
         width: 100%;
         padding: 10px;
         margin: 15px 10px 0 0px;
         background: none;
-        border: 3px solid #888ef3;
+        border: 2px solid #1c1c21;
         border-radius: 50px;
         box-sizing: border-box;
         font-size: 20px;
-        color: #888ef3;
+        color: #000000;
         outline: none;
         cursor: pointer;
+        &:focus {
+            color: #212529;
+            background-color: #fff;
+            border-color: #a2a6f4;
+            outline: 0;
+            box-shadow: 0 0 0 0.2rem #a2a6f4;
+        }
     }
     &__input:active, :hover, :focus {
         outline: 0;
@@ -63,10 +75,37 @@
     font-size: 18px;
     color: #ffff;
     cursor: pointer;
+    &:hover {
+        background-color: #6970f9;
+        border: none;
+        border-radius: 5px;
+        padding: 10px;
+        width: 120px;
+        font-size: 18px;
+        color: #ffff;
+        cursor: pointer;
+    
+    }
+    &:active {
+        background-color: #6970f9;
+        border: none;
+        border-radius: 5px;
+        padding: 10px;
+        width: 120px;
+        font-size: 18px;
+        color: #ffff;
+        cursor: pointer;
+
+    }
 }
 .link-button {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin: 15px;
+    a {
+        margin-top: 10px;
+        text-decoration: none;
+        color: #1c1c21;
+    }
 }

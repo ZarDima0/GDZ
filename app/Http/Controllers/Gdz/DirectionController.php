@@ -6,20 +6,18 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Article;
+use App\Models\Institute;
+use App\Models\Direction;
+
 
 class DirectionController extends Controller
 {
-    public function index($slug,$slugArticle)
+
+    public function index($instituteSlug)
     {
+        $instituteId = Institute::where('slug', '=', $instituteSlug)->first();
+        $directionList = Direction::where('institute_id', '=', $instituteId->id)->select(['nameDirection', 'slug'])->get();
 
-        $slugArticle = DB::table('direction')->where('slug', $slugArticle)->first();
-
-        $articleList = Article::where('direction_id', '=', $slugArticle->id)->get();
-        return view('article',compact('articleList'));
-    }
-    
-    public function create () {
-        
-    
+        return view('direction-list', compact('directionList', 'instituteSlug'));
     }
 }

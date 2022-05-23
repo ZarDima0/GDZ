@@ -24,8 +24,10 @@
         <nav>
             @if (Auth::check())
             <img src="public/img/user.png" alt="">
-            <h1>{{Auth::user()->name}}</h1>
-            <a href="{{route('create.file')}}">Добавить файл</a>
+            <a href="{{route('cabinet.index')}}"><img src="/img/avatar.png" width='40px' alt=""></a>
+            <button class='button_add-file'>
+                <a href="{{route('create.file')}}"><span>Загрузить</span><img width='25' height='25' src="/img/file.png" alt=""></a>
+            </button>
             <form method="POST" action="{{ route('logout') }}">
                 @csrf
                 <a class='button-logout' :href="route('logout')" style='cursor:pointer' onclick="event.preventDefault();
@@ -36,7 +38,6 @@
             @else
             <a href='{{ route("register") }}'>Зарегистрироваться</a>
             <a href='{{ route("login") }}'>Войти</a>
-            <a href="#home">Преподователи</a>
             @endif
         </nav>
     </header>
@@ -44,6 +45,9 @@
         @yield('content')
     </section>
     <script src="{{ asset("js/app.js") }}"></script>
+    @if(Route::currentRouteName() == 'create.file')
+    <script src="{{ asset('js/create-file.js') }}"></script>
+    @endif
 </body>
 
 </html>

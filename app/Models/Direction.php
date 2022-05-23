@@ -11,6 +11,6 @@ class Direction extends Model
 
     public function institute() 
     {
-        return $this->belongsTo(Institute::class);
+        return $this->belongsTo(Institute::class,'institute_id');
     }
 }

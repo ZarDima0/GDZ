@@ -1,10 +1,10 @@
 @extends('home')
 @section('content')
 <div class='block-create'>
-    <h2 class='title-create'>Войти</h2>
     <div class='form-create'>
         <form method="POST" action="{{ route('login') }}">
             @csrf
+            <h2 class='title-create'>Войти</h2>
 
             <!-- Email Address -->
             <div>
@@ -25,17 +25,27 @@
             </div> -->
 
             <div class="link-button flex items-center justify-end mt-4">
-                @if (Route::has('password.request'))
-                <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
-                    {{ __('Forgot your password?') }}
-                </a>
-                @endif
+
 
                 <x-button class="button-create ml-3">
                     {{ __('Войти') }}
                 </x-button>
+                @if (Route::has('password.request'))
+                <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
+                    {{ __('Забыли пароль?') }}
+                </a>
+                @endif
             </div>
         </form>
+        @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+        @endif
     </div>
 </div>
 @endsection
