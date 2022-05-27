@@ -34,7 +34,7 @@ class CreateFileController extends Controller
     {
         $input = $request->all();
 
-        $newArticle = $input['new-article'];
+        $newArticle = $input['article_name'];
         $idArticle = $input['article'];
 
         if($newArticle) {

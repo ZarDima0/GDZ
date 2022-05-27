@@ -6,7 +6,7 @@
 </div>
 @if($message = Session::get('updateUser'))
 <div class='block-success'>
-    <h3>Данные изменены</h3>
+    <h3>{{$message}}</h3>
     <img class='block-success__button-delete' src="/img/delete.png" alt="delele" width='25px'>
 </div>
 @endif

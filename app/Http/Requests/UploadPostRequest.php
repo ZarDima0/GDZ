@@ -30,8 +30,8 @@ class UploadPostRequest extends FormRequest
             'instityte' => 'required',
             'direction' => 'required',
             'article' => 'required',
-            'new-article' => 'max:255',
-            'file' => 'required|max:10000',
+            'article_name' => 'max:255|unique:article',
+            'file' => 'required|file|max:10000|mimes:doc,pdf,docx,zip',
         ];
     }
 }

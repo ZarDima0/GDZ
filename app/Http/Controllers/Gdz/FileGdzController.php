@@ -14,7 +14,6 @@ class FileGdzController extends Controller
     {
         $articleId = Article::where('slug', '=', $articleSlug)->first();
         $fileList = File::where('article_id', '=', $articleId->id)->get();
-        dd($size);
 
         return view('file-list', compact('fileList'));
     }

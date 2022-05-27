@@ -11,14 +11,18 @@
     </div>
     @endif
     @if ($errors->all())
-        <div class = 'block-error'>           
-            <h3>Ошибка</h3>
-            @foreach($errors->all() as $error)
+        <div class = 'block-error'>  
             <div class = 'block-error__text-error'>
-                <p>{{ $error }}</p>
+                <h3>Ошибка</h3>
+                <div class = 'block-error__text-error'>
+                    @foreach($errors->all() as $error)
+                        <p>{{ $error }}</p>
+                    @endforeach
+                </div>
             </div>
-			@endforeach
-            <img class = 'block-success__button-delete' src="/img/delete.png" alt="delele" width = '25px'>
+            <div>
+                <img class = 'block-success__button-delete' src="/img/delete.png" alt="delele" width = '25px'>
+            </div>   
         </div>
     @endif
     <input name = 'nameFile' placeholder = 'название практики' type="text">
@@ -28,7 +32,7 @@
     <select name = 'article' class = 'articke-List'  style = 'display:block'id="">
     <option disabled value="value1">Значение 1</option>
     </select>
-    <input class = 'new-article' name = 'new-article' placeholder = 'Напиши название предмета' style = 'display:none' type="text">
+    <input class = 'new-article' name = 'article_name' placeholder = 'Напиши название предмета' style = 'display:none' type="text">
     <input type="file" name="file">
     <input type="submit" value="Сохранить">
 </form>

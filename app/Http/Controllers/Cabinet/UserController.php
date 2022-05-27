@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\File;
 use App\Models\User;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Hash;
+use App\Rules\MatchOldPassword;
 
 class UserController extends Controller
 {
@@ -38,10 +40,29 @@ class UserController extends Controller
         $userFind->name = $request->name;
         $userFind->email = $request->email;
         $userFind->save();
+
+        if($request->old_password) {
+            if ($request->new_password) {
+                $request->validate([
+                    'old_password' => ['required',new MatchOldPassword],
+                    'new_password' => ['required'],
+                ]);
+                $userFind->password = Hash::make($request->new_password);
+                $userFind->save();
+                if($userFind) {
+                    return redirect()->route('cabinet.index')->with(['updateUser' => 'Данные сохранены']);
+                }                
+            }else {
+                return back()->withErrors(['updateUser' => 'Новый пароль не введен!']);
+            }
+        }
+
+        
         if($userFind) {
             return redirect()->route('cabinet.index')->with(['updateUser' => 'Данные сохранены']);
         }else {
-            return back()->withErrors(['msg' => 'Ошибка сохранения']);
+            return back()->withErrors(['updateUser' => 'Ошибка сохранения']);
         }
+        
     }
 }
